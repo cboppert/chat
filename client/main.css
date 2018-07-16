@@ -2,3 +2,29 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
+
+#application {
+   display: grid;
+   grid-template-rows: 70px 1fr 1fr;
+   grid-template-columns: 80% 20%;
+   grid-template-areas:
+      "header header"
+      "chat chats"
+      "chat users";
+}
+
+#chat-header {
+   grid-area: header;
+}
+
+#chat-window {
+   grid-area: chat;
+}
+
+#chat-list {
+   grid-area: chats;
+}
+
+#chat-users {
+   grid-area: users;
+}
