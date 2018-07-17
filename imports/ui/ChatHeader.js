@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import AccountsUIWrapper from './AccountsUIWrapper';
+
 export default class ChatHeader extends Component {
    render() {
       return(
@@ -15,11 +17,10 @@ export default class ChatHeader extends Component {
                </div>
             </section>
             <section id="user-info">
-               <div id="avatar"></div>
                <div id="user">
-                  <h1>Username</h1>
-                  <h4>Edit Profile</h4>
+                  <AccountsUIWrapper />
                </div>
+               <div id="avatar"></div>
             </section>
          </header>
       );
