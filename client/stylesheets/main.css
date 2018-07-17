@@ -5,16 +5,12 @@ body {
 
 #application {
    display: grid;
-   grid-template-rows: 70px 1fr 1fr;
+   grid-template-rows: 100px 1fr 1fr;
    grid-template-columns: 80% 20%;
    grid-template-areas:
       "header header"
       "chat chats"
       "chat users";
-}
-
-#chat-header {
-   grid-area: header;
 }
 
 #chat-window {
