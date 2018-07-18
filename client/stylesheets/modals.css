@@ -1,0 +1,30 @@
+.modal {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   top: 0;
+   right: 0;
+   background-color: rgba(234,162,112,0.5);
+   z-index: 10;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.close-modal-x {
+   margin-left: 270px;
+}
+
+.close-modal-x:hover {
+   cursor: pointer;
+}
+
+.modal-input {
+   margin-bottom: 20px;
+}
+
+.display-none {
+   display: none;
+}

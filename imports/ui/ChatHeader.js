@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 import AccountsUIWrapper from './AccountsUIWrapper';
 
@@ -12,9 +13,9 @@ export default class ChatHeader extends Component {
                      <h1>Chat Window</h1>
                   </div>
                   <div id="chat-actions">
-                     <h4 className="chat-action">Create Chat</h4>
-                     <h4 className="chat-action"> | Join Chat</h4>
-                     <h4 className="chat-action"> | Add Member to Chat</h4>
+                     <h4 className="chat-action" onClick={this.props.modalObject.toggleModal.bind(this, "createChat", true)}>Create Chat</h4>
+                     <h4 className="chat-action">Join Chat</h4>
+                     <h4 className="chat-action">Add Member to Chat</h4>
                   </div>
                </section>
             : <section id="chat-info"></section>}

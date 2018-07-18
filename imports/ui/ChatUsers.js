@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class ChatUsers extends Component {
    render() {
       return (
-         <section id="chat-users" class="sidebar-section">
+         <section id="chat-users" className="sidebar-section">
             <h3>Members</h3>
             <ul>
                <li>User One</li>
