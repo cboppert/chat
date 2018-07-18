@@ -9,21 +9,21 @@ export default class CreateChatModal extends Component {
       const modalClass = this.props.modalObject.showCreateChatModal ? '' : 'display-none';
       return(
          <section id="create-chat" className={`modal ${modalClass}`} ref="createChatModal">
-            <h1 className="close-modal-x" onClick={this.props.modalObject.toggleModal.bind(this, "createChat", false)}>X</h1>
-            <form id="create-chat-form">
+            <form id="create-chat-form" className="form-container">
+               <div className="close-modal-x">
+                  <h1 className="x" onClick={this.props.modalObject.toggleModal.bind(this, "createChat", false)}>X</h1>
+               </div>
                <section className="modal-form">
                   <header>
-                     <h1>Create Chatroom</h1>
+                     <h1 className="modal-title">Create Chatroom</h1>
                   </header>
                   <input type="text" name="title" placeholder="Title" className="modal-input" />
-                  <div id="public-private-toggle" className="modal-input">
-                     <label htmlFor="public">Public
-                        <input type="radio" name="private" value="false" defaultChecked />
-                     </label>
-                     <label htmlFor="private">Private
-                        <input type="radio" name="private" value="true" />
-                     </label>
-                  </div>
+                  <fieldset className="public-private-toggle modal-input">
+                     <input type="radio" name="private" value="false" defaultChecked />
+                     <label htmlFor="public">Public</label>
+                     <input type="radio" name="private" value="true" />
+                     <label htmlFor="private">Private</label>
+                  </fieldset>
                   <button className="sumbit-chat" onClick={this.createChat.bind(this)} className="modal-input">Create</button>
                </section>
             </form>
