@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import UserOption from './UserOption.js';
 
 export default class CreateChatModal extends Component {
    createChat() {
       null;
+   }
+
+   addUserOptions() {
+      return this.props.users.filter(user => this.props.currentUser._id !== user._id).map(user => <UserOption user={user} />);
    }
 
    render() {
@@ -26,13 +31,7 @@ export default class CreateChatModal extends Component {
                   </fieldset>
                   <label htmlFor="user-select" className="user-select-label">Add Users</label>
                   <select name="user-select" multiple size="4" className="user-select">
-                     <option value="user-one-id">User One</option>
-                     <option value="user-two-id">User Two</option>
-                     <option value="user-three-id">User Three</option>
-                     <option value="user-four-id">User Four</option>
-                     <option value="user-id-five">User Five</option>
-                     <option value="user-id-six">User Six</option>
-                     <option value="user-id-seven">User Seven</option>
+                     {this.addUserOptions()}
                   </select>
                   <button className="sumbit-chat" onClick={this.createChat.bind(this)} className="modal-input">Create</button>
                </section>

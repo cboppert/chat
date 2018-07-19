@@ -48,6 +48,10 @@
    display: block;
 }
 
+.user-select {
+   width: 100%;
+}
+
 .display-none {
    display: none;
 }

@@ -22,6 +22,7 @@ class App extends Component {
 
       var modalObject = {
          showCreateChatModal: this.state.showCreateChatModal,
+         currentUser: this.state.currentUser,
          toggleModal: function(modalName, display) {
             switch(modalName) {
                case "createChat":
@@ -42,7 +43,8 @@ class App extends Component {
             </div>
             <div id="modals">
                <CreateChatModal currentUser={this.props.currentUser}
-                                modalObject={modalObject} />
+                  modalObject={modalObject}
+                  users={this.props.allUsers} />
             </div>
          </div>
       );
@@ -50,7 +52,10 @@ class App extends Component {
 }
 
 export default withTracker(() => {
+   Meteor.subscribe('allUsers');
+
    return {
-      currentUser: Meteor.user()
+      currentUser: Meteor.user(),
+      allUsers: Meteor.users.find({}).fetch()
    }
 })(App);
