@@ -9,11 +9,17 @@ import ChatUsers from './ChatUsers.js';
 
 import CreateChatModal from './CreateChatModal.js';
 
+import { Users } from '../apis/users.js';
+
 // Represents the entire chat application
 class App extends Component {
    constructor(props) {
       super(props);
 
+      Meteor.subscribe('allUsers', () => {
+         this.state = { showCreateChatModal : false,
+                        allUsers : Meteor.users.find().fetch() };
+      });
       this.state = { showCreateChatModal : false };
    }
 
@@ -52,7 +58,7 @@ class App extends Component {
 }
 
 export default withTracker(() => {
-   Meteor.subscribe('allUsers');
+   Meteor.subscribe('allUsers').ready();
 
    return {
       currentUser: Meteor.user(),

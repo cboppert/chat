@@ -6,12 +6,16 @@ export default class CreateChatModal extends Component {
       null;
    }
 
-   addUserOptions() {
-      return this.props.users.filter(user => this.props.currentUser._id !== user._id).map(user => <UserOption user={user} />);
+   addUserOptions(allUsers) {
+      return allUsers.filter(user => this.props.currentUser._id !== user._id).map(user => <UserOption user={user} />);
    }
 
    render() {
       const modalClass = this.props.modalObject.showCreateChatModal ? '' : 'display-none';
+
+      const usersAllLoaded = Meteor.subscribe('allUsers').ready();
+      const allUsers = Meteor.users.find({}).fetch();
+
       return(
          <section id="create-chat" className={`modal ${modalClass}`} ref="createChatModal">
             <form id="create-chat-form" className="form-container">
@@ -31,7 +35,7 @@ export default class CreateChatModal extends Component {
                   </fieldset>
                   <label htmlFor="user-select" className="user-select-label">Add Users</label>
                   <select name="user-select" multiple size="4" className="user-select">
-                     {this.addUserOptions()}
+                     {this.addUserOptions(allUsers)}
                   </select>
                   <button className="sumbit-chat" onClick={this.createChat.bind(this)} className="modal-input">Create</button>
                </section>
